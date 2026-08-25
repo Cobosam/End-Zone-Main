@@ -76,10 +76,7 @@ public class WeaponManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha3)) SwitchWeapon(2);
 
         // Þarjör Deðiþtirme
-        if (Input.GetKeyDown(KeyCode.R) && currentWeaponAnim != null)
-        {
-            currentWeaponAnim.SetTrigger("isReloading");
-        }
+
 
         // Her karede ekrandaki mermi sayýsýný güncel tut
         UpdateAmmoText();

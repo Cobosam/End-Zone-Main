@@ -158,6 +158,12 @@ public class Player : MonoBehaviour, IDamageable
         }
 
         if (isReloading) return;
+        
+        if (Input.GetKeyDown(KeyCode.R) && weaponManager.currentWeaponAnim != null)
+        {
+            StartCoroutine(ReloadRoutine());
+            return;
+        }
 
         if (weaponManager.GetCurrentAmmo() <= 0)
         {

@@ -5,6 +5,7 @@ using TMPro;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField]TextMeshProUGUI level1ZombieText;
+    [SerializeField]TextMeshProUGUI level2ZombieText;
     [Header("Bölüm Ayarlarý")]
     public int hedeflenenZombiSayisi = 10; 
     private int oldurulenZombi = 0;        
@@ -18,7 +19,14 @@ public class LevelManager : MonoBehaviour
 
     void Update()
     {
-        level1ZombieText.text=oldurulenZombi.ToString();
+        if(level1ZombieText != null)
+        {
+            level1ZombieText.text=oldurulenZombi.ToString();
+        }
+        if (level2ZombieText != null)
+        {
+            level2ZombieText.text = oldurulenZombi.ToString();
+        }
     }
     public void ZombiOlduruldu()
     {

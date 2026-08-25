@@ -53,7 +53,7 @@ MonoBehaviour:
   damage: 15
   attackRange: 0.17
   moveSpeed: 1.8
-  colorTime: 0.3
+  colorTime: 0.1
   waitTime: 1
   deathTime: 1.2
   targetLayer:
