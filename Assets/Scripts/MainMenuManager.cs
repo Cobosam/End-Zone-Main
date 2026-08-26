@@ -17,6 +17,13 @@ public class MainMenuManager : MonoBehaviour
     }
     public void OyunaBasla()
     {
+        MenuMusic music = FindAnyObjectByType<MenuMusic>();
+        if (music != null)
+        {
+            Destroy(music.gameObject);
+        }
+
+        // Fader ile sahneyi yükleme kodun aynen kalýyor
         if (sceneFader != null)
         {
             sceneFader.FadeOutAndLoad("Level 1");

@@ -2288,6 +2288,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4183441095953340199, guid: cce92292bbde084488b1cda990759efe, type: 3}
+      propertyPath: menuClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6754105836197514014, guid: cce92292bbde084488b1cda990759efe, type: 3}
       propertyPath: m_Name
       value: MenuController
