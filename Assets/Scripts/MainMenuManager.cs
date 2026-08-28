@@ -5,7 +5,7 @@ public class MainMenuManager : MonoBehaviour
 {
     [Header("Sahne Geçiþ Yöneticisi")]
     public GameOverTitle gameOverTitle;
-    public SceneFader sceneFader; // Fader scriptine ulaþmak için bir referans açtýk
+    public SceneFader sceneFader; 
     [SerializeField]private AudioClip menuClip;
     private AudioSource menuSource;
     void Start()
@@ -17,16 +17,14 @@ public class MainMenuManager : MonoBehaviour
     }
     public void OyunaBasla()
     {
-        MenuMusic music = FindAnyObjectByType<MenuMusic>();
-        if (music != null)
-        {
-            Destroy(music.gameObject);
-        }
-
-        // Fader ile sahneyi yükleme kodun aynen kalýyor
         if (sceneFader != null)
         {
             sceneFader.FadeOutAndLoad("Level 1");
+            MenuMusic music = FindAnyObjectByType<MenuMusic>();
+            if (music != null)
+            {
+                Destroy(music.gameObject);
+            }
         }
     }
 

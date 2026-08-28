@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem.Editor;
 
 public class Player : MonoBehaviour, IDamageable
@@ -14,6 +15,9 @@ public class Player : MonoBehaviour, IDamageable
     public Transform atisNoktasi;
     private bool isReloading = false;
     private float reloadTime = 1.5f;
+    public AudioClip deathSound;
+    public AudioSource heartBeat;
+    private AudioSource audio;
     private Color originalColor;
     public bool isAlive = true;
     private ZombieSpawner zs;
@@ -23,12 +27,15 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private float PfireDuration = 0.5f;
     [SerializeField] private float SfireDuration = 1f;
     [SerializeField] private float RfireDuration = 0.2f;
+    public Image healthBarFill;
 
     bool isShoot = false;
 
     void Start()
     {
         currentHealth = maxHealth;
+        CanBariniGuncelle();
+        audio= GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
@@ -48,7 +55,13 @@ public class Player : MonoBehaviour, IDamageable
             {
                 gameOverManager.KarakterOldu();
             }
+            SurvivalTimer timer = FindAnyObjectByType<SurvivalTimer>();
+            if (timer != null)
+            {
+                timer.SayaciDurdur();
+            }
             isAlive = false;
+            audio.PlayOneShot(deathSound);
             anim.SetTrigger("isDeath");
             weaponManager.WeaponDie();
             this.enabled = false;
@@ -60,6 +73,7 @@ public class Player : MonoBehaviour, IDamageable
         HandleFlips();
         HandleAnimations();
         HandleGun();
+        HandleHPBar();
     }
 
     private void HandleMovement()
@@ -196,5 +210,36 @@ public class Player : MonoBehaviour, IDamageable
     {
         currentHealth -= damage;
         StartCoroutine(ChangeColor());
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        CanBariniGuncelle();
     }
+    private void HandleHPBar()
+    {
+        if (currentHealth <= 50 && currentHealth > 0)
+        {
+            if (!heartBeat.isPlaying)
+            {
+                heartBeat.Play();
+            }
+        }
+        else
+        {
+            if (heartBeat.isPlaying)
+            {
+                heartBeat.Stop();
+            }
+        }
+    }
+    private void CanBariniGuncelle()
+    {
+        if (healthBarFill != null)
+        {
+            // Fill Amount 0 ile 1 arasý deðer alýr. 
+            // Örneðin: 50 / 100 = 0.5 (Yarýsý dolu)
+            // (float) yazmamýzýn sebebi, tam sayýlarý bölerken sonucun sýfýrlanmasýný engellemektir.
+            healthBarFill.fillAmount = (float)currentHealth / maxHealth;
+        }
+    }
+    
 }

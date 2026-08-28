@@ -2,29 +2,36 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class Zombie_Big : MonoBehaviour,IDamageable
+public class Zombie_Big : MonoBehaviour, IDamageable
 {
     protected Player player;
     protected Barricade barricade;
     protected Rigidbody2D rigidbody2;
     protected CapsuleCollider2D capsuleCollider2;
     protected SpriteRenderer spriteRenderer;
-    [SerializeField]protected AudioClip damageSound;
     protected AudioSource audioSource;
+
+    [Header("Saldýrý Sesleri")]
+    [SerializeField] protected AudioClip playerHitSound;
+    [SerializeField] protected AudioClip barricadeHitSound;
+
+    [Header("Zombi Ayarlarý")]
     [SerializeField] protected int damage = 50;
     [SerializeField] protected float attackRange = 1f;
     [SerializeField] protected float moveSpeed;
-    [SerializeField] protected float colorTime=0.3f;
-    [SerializeField] protected float waitTime=1f;
+    [SerializeField] protected float colorTime = 0.3f;
+    [SerializeField] protected float waitTime = 1f;
     [SerializeField] protected float deathTime = 0.8f;
     [SerializeField] protected LayerMask targetLayer;
-    [SerializeField]protected int currentHealth;
-    [SerializeField]protected int maxHealth_zombieBig=100;
+    [SerializeField] protected int currentHealth;
+    [SerializeField] protected int maxHealth_zombieBig = 100;
     [SerializeField] Transform attackPoint;
+
     protected int deathCount = 0;
     protected Color originalColor;
     protected Animator anim2;
     protected bool canMove = true;
+
     protected virtual void Start()
     {
         currentHealth = maxHealth_zombieBig;
@@ -35,7 +42,7 @@ public class Zombie_Big : MonoBehaviour,IDamageable
         anim2 = GetComponentInChildren<Animator>();
         player = FindAnyObjectByType<Player>();
         barricade = FindAnyObjectByType<Barricade>();
-        originalColor=spriteRenderer.color;
+        originalColor = spriteRenderer.color;
     }
 
     void Update()
@@ -48,11 +55,11 @@ public class Zombie_Big : MonoBehaviour,IDamageable
         }
         else
         {
-            if(canMove)
+            if (canMove)
             {
                 anim2.SetBool("isAttacking", false);
                 CheckPositionY();
-                CheckPositionX(); // Seni oyuncuya doðru yürüten eski metodun
+                CheckPositionX();
             }
             else
             {
@@ -60,12 +67,13 @@ public class Zombie_Big : MonoBehaviour,IDamageable
             }
         }
     }
+
     protected void CheckPositionX()
     {
         if (player == null) return;
 
         Vector3 currentScale = transform.localScale;
-        if(player.isAlive) 
+        if (player.isAlive)
         {
             if (player.transform.position.x > transform.position.x)
             {
@@ -83,11 +91,12 @@ public class Zombie_Big : MonoBehaviour,IDamageable
             }
         }
     }
+
     protected void CheckPositionY()
     {
         if (player == null) return;
 
-        if(player.isAlive)
+        if (player.isAlive)
         {
             if (player.transform.position.y > transform.position.y)
             {
@@ -99,12 +108,14 @@ public class Zombie_Big : MonoBehaviour,IDamageable
             }
         }
     }
+
     protected void OnDrawGizmosSelected()
     {
         if (attackPoint == null) return;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
+
     protected void FindTarget()
     {
         Collider2D targetInSight = Physics2D.OverlapCircle(attackPoint.position, attackRange, targetLayer);
@@ -113,12 +124,14 @@ public class Zombie_Big : MonoBehaviour,IDamageable
             Attack();
         }
     }
+
     protected void Attack()
     {
         rigidbody2.linearVelocity = new Vector2(0, 0);
         anim2.SetFloat("xVelocity", 0f);
-        anim2.SetBool("isAttacking",true);
+        anim2.SetBool("isAttacking", true);
     }
+
     public void TakeDamage(int damage)
     {
         StartCoroutine(RedStand());
@@ -130,6 +143,7 @@ public class Zombie_Big : MonoBehaviour,IDamageable
             Die();
         }
     }
+
     protected void Die()
     {
         LevelManager levelManager = FindAnyObjectByType<LevelManager>();
@@ -140,12 +154,14 @@ public class Zombie_Big : MonoBehaviour,IDamageable
         deathCount++;
         StartCoroutine(DeathBody());
     }
-   protected IEnumerator RedStand()
+
+    protected IEnumerator RedStand()
     {
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(colorTime);
         spriteRenderer.color = originalColor;
     }
+
     protected IEnumerator DeathBody()
     {
         this.enabled = false;
@@ -155,6 +171,7 @@ public class Zombie_Big : MonoBehaviour,IDamageable
         yield return new WaitForSeconds(deathTime);
         Destroy(gameObject);
     }
+
     public virtual void DealDamage()
     {
         Collider2D[] hitTargets = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, targetLayer);
@@ -168,17 +185,33 @@ public class Zombie_Big : MonoBehaviour,IDamageable
             }
         }
     }
+
     public virtual void EnableMovement()
     {
         canMove = true;
-        //anim2.ResetTrigger("isAttacking");
     }
+
     public virtual void DisableMovement()
     {
         canMove = false;
     }
+
     public virtual void DamageSound()
     {
-        audioSource.PlayOneShot(damageSound);
+        // Menzildeki hedefi bul
+        Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, attackRange, targetLayer);
+
+        if (hit != null)
+        {
+            // Vurduðu objenin etiketine göre sesi çal
+            if (hit.CompareTag("Player") && playerHitSound != null)
+            {
+                audioSource.PlayOneShot(playerHitSound);
+            }
+            else if (hit.CompareTag("Barricade") && barricadeHitSound != null)
+            {
+                audioSource.PlayOneShot(barricadeHitSound);
+            }
+        }
     }
 }
