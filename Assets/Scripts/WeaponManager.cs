@@ -42,6 +42,11 @@ public class WeaponManager : MonoBehaviour
     private AudioSource audioSource;
     public Animator currentWeaponAnim;
 
+    [Header("Muzzle Flash Efektleri")]
+    public Animator pistolMuzzle;
+    public Animator shoutgunMuzzle;
+    public Animator rifleMuzzle;
+
 
 
     void Start()
@@ -54,9 +59,30 @@ public class WeaponManager : MonoBehaviour
         if (audioSource == null) return;
 
         // Hangi silah aktifse onun ateþ sesini çal
-        if (pistol.activeSelf && pistolFireSound != null) audioSource.PlayOneShot(pistolFireSound);
-        else if (rifle.activeSelf && rifleFireSound != null) audioSource.PlayOneShot(rifleFireSound);
-        else if (shotgun.activeSelf && shotgunFireSound != null) audioSource.PlayOneShot(shotgunFireSound);
+        if (pistol.activeSelf && pistolFireSound != null)
+        {
+            audioSource.PlayOneShot(pistolFireSound);
+            if (pistolMuzzle != null)
+            {
+                pistolMuzzle.SetTrigger("Fire");
+            }
+        }
+        else if (rifle.activeSelf && rifleFireSound != null)
+        {
+            audioSource.PlayOneShot(rifleFireSound);
+            if (rifleMuzzle != null)
+            {
+                rifleMuzzle.SetTrigger("Fire");
+            }
+        }
+        else if (shotgun.activeSelf && shotgunFireSound != null)
+        {
+            audioSource.PlayOneShot(shotgunFireSound);
+            if (shoutgunMuzzle != null)
+            {
+                shoutgunMuzzle.SetTrigger("Fire");
+            }
+        }
     }
     public void PlayReloadSound()
     {

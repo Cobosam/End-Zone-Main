@@ -47,6 +47,14 @@ public class Zombie_Big : MonoBehaviour, IDamageable
 
     void Update()
     {
+        if(player.isAlive==false)
+        {
+            this.enabled = false;
+            capsuleCollider2.enabled = false;
+            anim2.SetBool("isAttacking", false);
+            return;
+        }
+
         bool isTargetInSight = Physics2D.OverlapCircle(attackPoint.position, attackRange, targetLayer) != null;
 
         if (isTargetInSight)
@@ -65,7 +73,7 @@ public class Zombie_Big : MonoBehaviour, IDamageable
             {
                 return;
             }
-        }
+        } 
     }
 
     protected void CheckPositionX()
@@ -90,6 +98,10 @@ public class Zombie_Big : MonoBehaviour, IDamageable
                 anim2.SetFloat("xVelocity", Mathf.Abs(rigidbody2.linearVelocity.x));
             }
         }
+        else
+        {
+            rigidbody2.linearVelocity = new Vector2(0, rigidbody2.linearVelocity.y);
+        }
     }
 
     protected void CheckPositionY()
@@ -106,6 +118,10 @@ public class Zombie_Big : MonoBehaviour, IDamageable
             {
                 rigidbody2.linearVelocity = new Vector2(rigidbody2.linearVelocity.x, -moveSpeed);
             }
+        }
+        else
+        {
+            rigidbody2.linearVelocity = new Vector2(rigidbody2.linearVelocity.x, 0);
         }
     }
 

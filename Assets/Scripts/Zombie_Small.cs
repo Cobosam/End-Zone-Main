@@ -10,6 +10,13 @@ public class Zombie_Small : Zombie_Big
     }
     void Update()
     {
+        if(player.isAlive==false)
+        {
+            rigidbody2.linearVelocity = new Vector2(0, 0);
+            anim2.SetBool("isAttacking", false);
+            this.enabled = false;
+            return;
+        }
         CheckPositionX();
         CheckPositionY();
         FindTarget();

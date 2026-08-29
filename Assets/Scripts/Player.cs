@@ -49,6 +49,11 @@ public class Player : MonoBehaviour, IDamageable
     {
         if (currentHealth <= 0)
         {
+            heartBeat.Stop();
+            isAlive = false;
+            rb.linearVelocity = new Vector2(0, 0);
+            this.enabled = false;
+            cl.enabled = false;
             zs.UretimiDurdur();
             GameOverTitle gameOverManager = FindAnyObjectByType<GameOverTitle>();
             if (gameOverManager != null)
@@ -60,14 +65,10 @@ public class Player : MonoBehaviour, IDamageable
             {
                 timer.SayaciDurdur();
             }
-            isAlive = false;
             audio.PlayOneShot(deathSound);
             anim.SetTrigger("isDeath");
             weaponManager.WeaponDie();
-            this.enabled = false;
-            cl.enabled = false;
-            rb.linearVelocity= new Vector2(0,0);
-            
+            return;
         }
         HandleMovement();
         HandleFlips();
