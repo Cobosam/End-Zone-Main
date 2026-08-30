@@ -88,7 +88,6 @@ public class WeaponManager : MonoBehaviour
     {
         if (audioSource == null) return;
 
-        // Hangi silah aktifse onun mermi doldurma sesini çal
         if (pistol.activeSelf && pistolReloadSound != null) audioSource.PlayOneShot(pistolReloadSound);
         else if (rifle.activeSelf && rifleReloadSound != null) audioSource.PlayOneShot(rifleReloadSound);
         else if (shotgun.activeSelf && shotgunReloadSound != null) audioSource.PlayOneShot(shotgunReloadSound);
@@ -96,21 +95,17 @@ public class WeaponManager : MonoBehaviour
 
     void Update()
     {
-        // Silah Deðiþtirme Tuþlarý
         if (Input.GetKeyDown(KeyCode.Alpha1)) SwitchWeapon(0);
         else if (Input.GetKeyDown(KeyCode.Alpha2)) SwitchWeapon(1);
         else if (Input.GetKeyDown(KeyCode.Alpha3)) SwitchWeapon(2);
 
-        // Þarjör Deðiþtirme
 
 
-        // Her karede ekrandaki mermi sayýsýný güncel tut
         UpdateAmmoText();
     }
 
     private void SwitchWeapon(int weaponIndex)
     {
-        // 1. ÖNCE HER ÞEYÝ GÝZLE (Silahlar, Metinler ve Ýkonlar)
         pistol.SetActive(false);
         rifle.SetActive(false);
         shotgun.SetActive(false);
@@ -123,13 +118,18 @@ public class WeaponManager : MonoBehaviour
         if (rifleIcon != null) rifleIcon.SetActive(false);
         if (shotgunIcon != null) shotgunIcon.SetActive(false);
 
-        // 2. SADECE SEÇÝLÝ OLAN SÝLAHI, METNÝNÝ VE ÝKONUNU AKTÝF ET
         if (weaponIndex == 0)
         {
             pistol.SetActive(true);
             pistolText.gameObject.SetActive(true);
             if (pistolIcon != null) pistolIcon.SetActive(true);
             currentWeaponAnim = pistol.GetComponent<Animator>();
+
+            if (pistolMuzzle != null)
+            {
+                pistolMuzzle.Rebind();
+                pistolMuzzle.GetComponent<SpriteRenderer>().sprite = null;
+            }
         }
         else if (weaponIndex == 1)
         {
@@ -137,6 +137,12 @@ public class WeaponManager : MonoBehaviour
             rifleText.gameObject.SetActive(true);
             if (rifleIcon != null) rifleIcon.SetActive(true);
             currentWeaponAnim = rifle.GetComponent<Animator>();
+
+            if (rifleMuzzle != null)
+            {
+                rifleMuzzle.Rebind();
+                rifleMuzzle.GetComponent<SpriteRenderer>().sprite = null;
+            }
         }
         else if (weaponIndex == 2)
         {
@@ -144,10 +150,15 @@ public class WeaponManager : MonoBehaviour
             shotgunText.gameObject.SetActive(true);
             if (shotgunIcon != null) shotgunIcon.SetActive(true);
             currentWeaponAnim = shotgun.GetComponent<Animator>();
+
+            if (shoutgunMuzzle != null)
+            {
+                shoutgunMuzzle.Rebind();
+                shoutgunMuzzle.GetComponent<SpriteRenderer>().sprite = null;
+            }
         }
     }
 
-    // Seçili silahýn mermi miktarýný UI'a (Ekrana) yazdýran metod
     private void UpdateAmmoText()
     {
         if (pistol.activeSelf)
@@ -163,16 +174,14 @@ public class WeaponManager : MonoBehaviour
             shotgunText.text = shotgunAmmo.ToString();
         }
     }
-    // O an elimizdeki silahýn kaç mermisi kaldýðýný Player'a söyler
     public int GetCurrentAmmo()
     {
         if (pistol.activeSelf) return pistolAmmo;
         if (rifle.activeSelf) return rifleAmmo;
         if (shotgun.activeSelf) return shotgunAmmo;
-        return 0; // Hiçbiri yoksa 0 döndür
+        return 0; 
     }
 
-    // Ateþ edildiðinde sadece elimizdeki aktif silahýn mermisini 1 azaltýr
     public void DecreaseAmmo()
     {
         if (pistol.activeSelf && pistolAmmo > 0) pistolAmmo--;
@@ -180,19 +189,18 @@ public class WeaponManager : MonoBehaviour
         else if (shotgun.activeSelf && shotgunAmmo > 0) shotgunAmmo--;
     }
 
-    // Þarjör deðiþtirildiðinde sadece elimizdeki silahýn mermisini fuller
     public void ReloadCurrentWeapon()
     {
-        if (pistol.activeSelf) pistolAmmo = 12;       // Tabanca max mermi
-        else if (rifle.activeSelf) rifleAmmo = 20;    // Tüfek max mermi
-        else if (shotgun.activeSelf) shotgunAmmo = 8; // Pompalý max mermi
+        if (pistol.activeSelf) pistolAmmo = 12;       
+        else if (rifle.activeSelf) rifleAmmo = 20;    
+        else if (shotgun.activeSelf) shotgunAmmo = 8; 
     }
     public GameObject GetCurrentBullet()
     {
         if (pistol.activeSelf) return pistolBullet;
         if (rifle.activeSelf) return rifleBullet;
         if (shotgun.activeSelf) return shotgunBullet;
-        return null; // Hiçbiri yoksa 0 döndür
+        return null; 
     }
     public void WeaponDie()
     {

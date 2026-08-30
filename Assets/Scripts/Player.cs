@@ -18,15 +18,19 @@ public class Player : MonoBehaviour, IDamageable
     public AudioClip deathSound;
     public AudioSource heartBeat;
     private AudioSource audio;
+    public AudioSource healSource;
+    public AudioClip healEffect;
     private Color originalColor;
     public bool isAlive = true;
     private ZombieSpawner zs;
-    [SerializeField] private int currentHealth;
+    [SerializeField] public int currentHealth;
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float PfireDuration = 0.5f;
     [SerializeField] private float SfireDuration = 1f;
     [SerializeField] private float RfireDuration = 0.2f;
+    public GameObject healEffectObject; 
+    public float effectDuration = 2f;
     public Image healthBarFill;
 
     bool isShoot = false;
@@ -126,7 +130,6 @@ public class Player : MonoBehaviour, IDamageable
         GameObject dogruMermi = weaponManager.GetCurrentBullet();
         if(dogruMermi != null)
         {
-            // Her silah için ateþ ettikten sonra bekleme süresi ekle
             if(dogruMermi == weaponManager.pistolBullet && isShoot==false)
             {
                 isShoot = true;
@@ -236,11 +239,30 @@ public class Player : MonoBehaviour, IDamageable
     {
         if (healthBarFill != null)
         {
-            // Fill Amount 0 ile 1 arasý deðer alýr. 
-            // Örneðin: 50 / 100 = 0.5 (Yarýsý dolu)
-            // (float) yazmamýzýn sebebi, tam sayýlarý bölerken sonucun sýfýrlanmasýný engellemektir.
             healthBarFill.fillAmount = (float)currentHealth / maxHealth;
         }
     }
-    
+    public void Heal(int healAmount)
+    {
+        currentHealth += healAmount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        healSource.PlayOneShot(healEffect);
+
+        CanBariniGuncelle();
+        HandleHPBar();
+        if (healEffectObject != null)
+        {
+            StartCoroutine(PlayHealthEffect());
+        }
+
+        Debug.Log("Ýyileþildi! Mevcut Can: " + currentHealth);
+    }
+    private IEnumerator PlayHealthEffect()
+    {
+        healEffectObject.SetActive(true);  
+
+        yield return new WaitForSeconds(effectDuration); 
+
+        healEffectObject.SetActive(false); 
+    }
 }
