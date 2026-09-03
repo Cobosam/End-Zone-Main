@@ -1,19 +1,31 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement; // Sahne yüklemek için bu kütüphaneyi ekledik
+using UnityEngine.SceneManagement;
+using TMPro; // Sahne yüklemek için bu kütüphaneyi ekledik
 
 public class SceneFader : MonoBehaviour
 {
     [Header("Siyah Ekran Objesi")]
     public Image blackScreen;
+    [Header("BloodMoon Text")]
+    public CanvasGroup bloodMoonText;
 
     [Header("Açýlma/Kapanma Hýzý")]
     public float fadeSpeed = 1f;
 
+    private ZombieSpawner zs;
+
     void Start()
     {
+        zs= FindAnyObjectByType<ZombieSpawner>();
         StartCoroutine(FadeInRoutine());
+        if (bloodMoonText != null)
+        {
+            bloodMoonText.alpha = 0f;
+            bloodMoonText.interactable = false;
+            bloodMoonText.blocksRaycasts = false;
+        }
     }
 
     private IEnumerator FadeInRoutine()
@@ -52,5 +64,36 @@ public class SceneFader : MonoBehaviour
 
         // Ekran zifiri karanlýk olduðunda diðer sahneyi yükle
         SceneManager.LoadScene(sceneName);
+    }
+    public void CallBloodMoonText()
+    {
+        StartCoroutine(BloodMoonSequence());
+    }
+    private IEnumerator TextDuration()
+    {
+        yield return new WaitForSeconds(5);
+    }
+    public IEnumerator BloodMoonSequence()
+    {
+        zs.PlayHowlSound();
+        while (bloodMoonText.alpha < 1f)
+        {
+            bloodMoonText.alpha += fadeSpeed * Time.deltaTime;
+            yield return null;
+        }
+        bloodMoonText.alpha = 1f; 
+        bloodMoonText.interactable = true;
+        bloodMoonText.blocksRaycasts = true;
+
+        yield return new WaitForSeconds(2.5f);
+
+        while (bloodMoonText.alpha > 0f)
+        {
+            bloodMoonText.alpha -= fadeSpeed * Time.deltaTime;
+            yield return null;
+        }
+        bloodMoonText.alpha = 0f; 
+        bloodMoonText.interactable = false;
+        bloodMoonText.blocksRaycasts = false;
     }
 }

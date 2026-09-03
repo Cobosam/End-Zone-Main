@@ -97,11 +97,16 @@ public class Zombie_Big : MonoBehaviour, IDamageable
                 rigidbody2.linearVelocity = new Vector2(-moveSpeed, rigidbody2.linearVelocity.y);
                 anim2.SetFloat("xVelocity", Mathf.Abs(rigidbody2.linearVelocity.x));
             }
+            else
+            {
+                rigidbody2.linearVelocity = new Vector2(0, rigidbody2.linearVelocity.y);
+            }
         }
         else
         {
-            rigidbody2.linearVelocity = new Vector2(0, rigidbody2.linearVelocity.y);
+            return;
         }
+
     }
 
     protected void CheckPositionY()
@@ -118,11 +123,16 @@ public class Zombie_Big : MonoBehaviour, IDamageable
             {
                 rigidbody2.linearVelocity = new Vector2(rigidbody2.linearVelocity.x, -moveSpeed);
             }
+            else
+            {
+                rigidbody2.linearVelocity = new Vector2(rigidbody2.linearVelocity.x, 0);
+            }
         }
         else
         {
-            rigidbody2.linearVelocity = new Vector2(rigidbody2.linearVelocity.x, 0);
+            return;
         }
+        
     }
 
     protected void OnDrawGizmosSelected()

@@ -168,7 +168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &40871198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,7 +366,7 @@ Transform:
   m_GameObject: {fileID: 170283500}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04, y: -4.67, z: 0}
+  m_LocalPosition: {x: 0.04, y: -4.61, z: 0}
   m_LocalScale: {x: 17.88884, y: 0.27627006, z: 0.991468}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -896,9 +896,9 @@ GameObject:
   - component: {fileID: 459272536}
   - component: {fileID: 459272535}
   - component: {fileID: 459272534}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HealingPlace
-  m_TagString: Untagged
+  m_TagString: Healing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -962,7 +962,7 @@ Transform:
   m_GameObject: {fileID: 459272533}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.82, y: -4.19, z: 0}
+  m_LocalPosition: {x: 1.82, y: -4.21, z: 0}
   m_LocalScale: {x: 0.6818, y: 0.6818, z: 0.6818}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2831,8 +2831,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.00816834, y: -0.040400267}
-  m_Size: {x: 0.5682385, y: 1.017143}
+  m_Offset: {x: -0.009360075, y: -0.001909256}
+  m_Size: {x: 0.54592955, y: 1.132616}
   m_Direction: 0
 --- !u!4 &923604822
 Transform:
@@ -2843,7 +2843,7 @@ Transform:
   m_GameObject: {fileID: 923604819}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2, y: -2.89, z: 0}
+  m_LocalPosition: {x: -0.02, y: -2.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2875,7 +2875,7 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 200
   moveSpeed: 5
-  PfireDuration: 0.25
+  PfireDuration: 0.05
   SfireDuration: 1
   RfireDuration: 0.05
   healEffectObject: {fileID: 1032568022}
@@ -5037,7 +5037,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1710831404}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Road
   m_TagString: Untagged
   m_Icon: {fileID: 0}

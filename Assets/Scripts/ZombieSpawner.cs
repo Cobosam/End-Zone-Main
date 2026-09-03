@@ -1,11 +1,10 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ZombieSpawner : MonoBehaviour
 {
     [Header("Üretilecek Zombi Türleri")]
-    // Köþeli parantez [] bu deðiþkenin bir "liste" olduðunu belirtir.
-    // Unity arayüzünde buraya istediðin kadar zombi türü ekleyebilirsin.
     public GameObject[] zombiePrefabs;
 
     [Header("Doðma Noktalarý")]
@@ -13,21 +12,48 @@ public class ZombieSpawner : MonoBehaviour
     public Transform rightSpawnPoint;
 
     [Header("Zaman Ayarlarý")]
-    public float spawnInterval = 3f; // Kaç saniyede bir zombi doðacak?
+    private float spawnInterval;
+    [SerializeField] private float bloodMoonTime = 10f;
+    public bool canSpawn = true;
+    public AudioSource audio;
+    public AudioClip zombieHowls;
+    public AudioClip zombieHorde;
+
+
+    private SceneFader sf;
 
     void Start()
     {
-        // Oyun baþladýðýnda zombi üretme döngüsünü baþlatýr
+        audio= GetComponent<AudioSource>();
+        spawnInterval = 2f;
         StartCoroutine(SpawnZombieRoutine());
+        sf= FindAnyObjectByType<SceneFader>();
+
+        string currentScene = SceneManager.GetActiveScene().name;
+        if (currentScene == "Level 3")
+        {
+            StartCoroutine(BloodMoonRoutine());
+        }
     }
 
     private IEnumerator SpawnZombieRoutine()
     {
-        while (true)
+        while (true) 
         {
-            yield return new WaitForSeconds(spawnInterval);
-            SpawnZombie();
+            if (canSpawn)
+            {
+                SpawnZombie();
+                yield return new WaitForSeconds(spawnInterval);
+            }
+            else
+            {
+                yield return null;
+            }
         }
+    }
+    public void PlayHowlSound()
+    {
+        audio.PlayOneShot(zombieHowls);
     }
     public void UretimiDurdur()
     {
@@ -38,21 +64,32 @@ public class ZombieSpawner : MonoBehaviour
 
     private void SpawnZombie()
     {
-        // Güvenlik kontrolü: Eðer listeye hiç zombi eklenmemiþse hata vermesin diye iþlemi iptal et
         if (zombiePrefabs.Length == 0) return;
 
-        // 1. HANGÝ ZOMBÝ? Listeden (0 ile listedeki eleman sayýsý arasýnda) rastgele bir zombi seç
         int randomZombieIndex = Random.Range(0, zombiePrefabs.Length);
         GameObject selectedZombie = zombiePrefabs[randomZombieIndex];
 
-        // 2. HANGÝ YÖN? 0 veya 1 sayýsýný rastgele seç (0 ise Sol, 1 ise Sað)
         int randomSide = Random.Range(0, 2);
         Transform selectedPoint = randomSide == 0 ? leftSpawnPoint : rightSpawnPoint;
 
-        // 3. ÜRETÝM AÞAMASI: Seçilen zombiyi, seçilen noktada oyuna dahil et
         if (selectedZombie != null && selectedPoint != null)
         {
             Instantiate(selectedZombie, selectedPoint.position, selectedPoint.rotation);
         }
+    }
+    private IEnumerator BloodMoonRoutine()
+    {
+        yield return new WaitForSeconds(bloodMoonTime);
+
+        canSpawn = false;
+
+        if (sf != null)
+        {
+            yield return StartCoroutine(sf.BloodMoonSequence());
+        }
+
+        spawnInterval = 0.8f;
+        canSpawn = true;
+        audio.PlayOneShot(zombieHorde);
     }
 }
