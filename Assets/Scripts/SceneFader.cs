@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using TMPro; // Sahne yüklemek için bu kütüphaneyi ekledik
+using TMPro;
 
 public class SceneFader : MonoBehaviour
 {
@@ -37,12 +37,7 @@ public class SceneFader : MonoBehaviour
             blackScreen.color = objectColor;
             yield return null;
         }
-        //blackScreen.gameObject.SetActive(false);
     }
-
-    // --- YENÝ EKLENEN KISIM ---
-
-    // Dýþarýdan (Menüden) bu fader'ý tetiklemek için kullanacaðýmýz metod
     public void FadeOutAndLoad(string sceneName)
     {
         StartCoroutine(FadeOutRoutine(sceneName));
@@ -50,11 +45,8 @@ public class SceneFader : MonoBehaviour
 
     private IEnumerator FadeOutRoutine(string sceneName)
     {
-        // Ekraný tekrar görünür yap
-        //blackScreen.gameObject.SetActive(true);
         Color objectColor = blackScreen.color;
 
-        // Þeffaflýk (Alpha) 1 olana kadar (tamamen siyah olana kadar) döngüyü çalýþtýr
         while (objectColor.a < 1)
         {
             objectColor.a += fadeSpeed * Time.deltaTime;
@@ -62,7 +54,6 @@ public class SceneFader : MonoBehaviour
             yield return null;
         }
 
-        // Ekran zifiri karanlýk olduðunda diðer sahneyi yükle
         SceneManager.LoadScene(sceneName);
     }
     public void CallBloodMoonText()

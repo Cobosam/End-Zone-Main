@@ -878,6 +878,7 @@ MonoBehaviour:
   audio: {fileID: 469304797}
   zombieHowls: {fileID: 8300000, guid: 9cff6662df7dcfa46ac92fd076be2a09, type: 3}
   zombieHorde: {fileID: 8300000, guid: 0f2d44831299a834284941d5b632c703, type: 3}
+  rainSoundEffect: {fileID: 8300000, guid: dd75bdcd77917e443892216e9b4f6d47, type: 3}
 --- !u!82 &469304797
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3004,7 +3005,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.35
+      scalar: 0.78
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -3175,7 +3176,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.05
+      scalar: 0.04
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3552,15 +3553,15 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 12
-    angle: 25
+    type: 4
+    angle: 0.06
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 8.95, y: -0.28, z: 1}
+    m_Scale: {x: 8.8, y: -0.28, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -3639,7 +3640,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 1.17
       mode: 0
       spread: 0
       speed:
@@ -3758,7 +3759,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 141.17
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -7652,13 +7653,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854425198}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.07, y: 5.52, z: 0}
+  m_LocalRotation: {x: -0.10646303, y: -0.6990462, z: 0.6990463, w: 0.106463075}
+  m_LocalPosition: {x: 2.32, y: 7.49, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -287.319, y: -90, z: -270}
 --- !u!1 &905723554
 GameObject:
   m_ObjectHideFlags: 0
@@ -8124,7 +8125,7 @@ MonoBehaviour:
   rifleIcon: {fileID: 1524781510}
   shotgunIcon: {fileID: 924692963}
   pistolFireSound: {fileID: 8300000, guid: 4addd3e5dedcb82488b693f801430390, type: 3}
-  rifleFireSound: {fileID: 8300000, guid: dedafe370447aa244a7b7648a25aa17e, type: 3}
+  rifleFireSound: {fileID: 8300000, guid: 7ffda781d7eaa06478f8c1b2a7b4a120, type: 3}
   shotgunFireSound: {fileID: 8300000, guid: 9751de31642e44b498561668fc5bb1c8, type: 3}
   pistolReloadSound: {fileID: 8300000, guid: 91abd71a2943c7545b64f276a39405d1, type: 3}
   rifleReloadSound: {fileID: 8300000, guid: 96194085abbfb5847a9a2092148e5b37, type: 3}

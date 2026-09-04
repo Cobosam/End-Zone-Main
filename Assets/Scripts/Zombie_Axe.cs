@@ -7,6 +7,10 @@ public class Zombie_Axe : Zombie_Big
     {
         base.Start();
         currentHealth = maxHealth_zombieAxe;
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sortingOrder = Random.Range(1, 1000);
+        }
     }
     void Update()
     {
@@ -14,6 +18,7 @@ public class Zombie_Axe : Zombie_Big
         {
             rigidbody2.linearVelocity = new Vector2(0, 0);
             anim2.SetBool("isAttacking", false);
+            anim2.SetFloat("xVelocity", 0f);
             this.enabled = false;
             return;
         }

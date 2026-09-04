@@ -18,6 +18,7 @@ public class ZombieSpawner : MonoBehaviour
     public AudioSource audio;
     public AudioClip zombieHowls;
     public AudioClip zombieHorde;
+    public AudioClip rainSoundEffect;
 
 
     private SceneFader sf;
@@ -28,6 +29,7 @@ public class ZombieSpawner : MonoBehaviour
         spawnInterval = 2f;
         StartCoroutine(SpawnZombieRoutine());
         sf= FindAnyObjectByType<SceneFader>();
+        audio.PlayOneShot(rainSoundEffect);
 
         string currentScene = SceneManager.GetActiveScene().name;
         if (currentScene == "Level 3")

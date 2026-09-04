@@ -34,6 +34,7 @@ public class Zombie_Big : MonoBehaviour, IDamageable
 
     protected virtual void Start()
     {
+        
         currentHealth = maxHealth_zombieBig;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
@@ -43,6 +44,10 @@ public class Zombie_Big : MonoBehaviour, IDamageable
         player = FindAnyObjectByType<Player>();
         barricade = FindAnyObjectByType<Barricade>();
         originalColor = spriteRenderer.color;
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sortingOrder = Random.Range(1, 1000);
+        }
     }
 
     void Update()
@@ -50,30 +55,33 @@ public class Zombie_Big : MonoBehaviour, IDamageable
         if(player.isAlive==false)
         {
             this.enabled = false;
-            capsuleCollider2.enabled = false;
+            rigidbody2.simulated = false;
             anim2.SetBool("isAttacking", false);
+            anim2.SetFloat("xVelocity", 0f);
             return;
-        }
-
-        bool isTargetInSight = Physics2D.OverlapCircle(attackPoint.position, attackRange, targetLayer) != null;
-
-        if (isTargetInSight)
-        {
-            Attack();
         }
         else
         {
-            if (canMove)
+            bool isTargetInSight = Physics2D.OverlapCircle(attackPoint.position, attackRange, targetLayer) != null;
+
+            if (isTargetInSight)
             {
-                anim2.SetBool("isAttacking", false);
-                CheckPositionY();
-                CheckPositionX();
+                Attack();
             }
             else
             {
-                return;
+                if (canMove)
+                {
+                    anim2.SetBool("isAttacking", false);
+                    CheckPositionY();
+                    CheckPositionX();
+                }
+                else
+                {
+                    return;
+                }
             }
-        } 
+        }
     }
 
     protected void CheckPositionX()
