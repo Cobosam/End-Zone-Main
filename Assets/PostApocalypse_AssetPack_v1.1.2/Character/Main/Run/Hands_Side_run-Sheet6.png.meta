@@ -145,9 +145,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1
-        width: 7
-        height: 6
+        y: 0
+        width: 14
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,10 +166,10 @@ TextureImporter:
       name: Hands_Side_run-Sheet6_1
       rect:
         serializedVersion: 2
-        x: 10
-        y: 1
-        width: 10
-        height: 7
+        x: 14
+        y: 0
+        width: 14
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,10 +188,10 @@ TextureImporter:
       name: Hands_Side_run-Sheet6_2
       rect:
         serializedVersion: 2
-        x: 24
-        y: 1
-        width: 8
-        height: 7
+        x: 28
+        y: 0
+        width: 14
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: Hands_Side_run-Sheet6_3
       rect:
         serializedVersion: 2
-        x: 38
-        y: 1
-        width: 17
-        height: 7
+        x: 42
+        y: 0
+        width: 14
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,10 +232,10 @@ TextureImporter:
       name: Hands_Side_run-Sheet6_4
       rect:
         serializedVersion: 2
-        x: 58
-        y: 1
-        width: 7
-        height: 7
+        x: 56
+        y: 0
+        width: 14
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,10 +254,10 @@ TextureImporter:
       name: Hands_Side_run-Sheet6_5
       rect:
         serializedVersion: 2
-        x: 73
-        y: 2
-        width: 6
-        height: 6
+        x: 70
+        y: 0
+        width: 14
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,7 +276,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c6d2e4ab6d2517a4983ade06ff8755ec
     internalID: 0
     vertices: []
     indices: 

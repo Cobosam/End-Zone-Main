@@ -46,7 +46,7 @@ public class Zombie_Big : MonoBehaviour, IDamageable
         originalColor = spriteRenderer.color;
         if (spriteRenderer != null)
         {
-            spriteRenderer.sortingOrder = Random.Range(1, 1000);
+            spriteRenderer.sortingOrder = Random.Range(20, 1000);
         }
     }
 

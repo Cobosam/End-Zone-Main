@@ -29,15 +29,20 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private float PfireDuration = 0.5f;
     [SerializeField] private float SfireDuration = 1f;
     [SerializeField] private float RfireDuration = 0.2f;
-    public GameObject healEffectObject; 
+    public GameObject healEffectObject;
+    public GameObject ammoEffectObject;
     public float effectDuration = 2f;
     public Image healthBarFill;
-
+    public Image adrenalinBarFill;
+    [SerializeField]private float maxAdrenalin;
+    public float currentAdrenalin=0f;
+    public int ekstraMermiGucu = 0;
     bool isShoot = false;
 
     void Start()
     {
         currentHealth = maxHealth;
+        currentAdrenalin = maxAdrenalin;
         CanBariniGuncelle();
         audio= GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
@@ -242,6 +247,14 @@ public class Player : MonoBehaviour, IDamageable
             healthBarFill.fillAmount = (float)currentHealth / maxHealth;
         }
     }
+    public void UpdateAdrenalin()
+    {
+        if(adrenalinBarFill != null)
+        {
+            adrenalinBarFill.fillAmount= (float)currentAdrenalin / maxAdrenalin;
+        }
+    }
+
     public void Heal(int healAmount)
     {
         currentHealth += healAmount;
@@ -260,9 +273,13 @@ public class Player : MonoBehaviour, IDamageable
     private IEnumerator PlayHealthEffect()
     {
         healEffectObject.SetActive(true);  
-
         yield return new WaitForSeconds(effectDuration); 
-
         healEffectObject.SetActive(false); 
+    }
+    public IEnumerator PlayAmmoEffect()
+    {
+        ammoEffectObject.SetActive(true);
+        yield return new WaitForSeconds(8f);
+        ammoEffectObject.SetActive(false);
     }
 }

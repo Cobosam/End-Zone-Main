@@ -131,7 +131,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 60
+        width: 10
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -147,11 +147,121 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Character_side-left_idle_no-hands-Sheet6_1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 0
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53756fca013d489409a5877d78cdc9b2
+      internalID: 1072709790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_side-left_idle_no-hands-Sheet6_2
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 0
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56b407dbe81c70e459b3b5e795774e22
+      internalID: -1169087321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_side-left_idle_no-hands-Sheet6_3
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 0
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7889f572f5d08ab48917e090f4b5f3ac
+      internalID: -1537244429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_side-left_idle_no-hands-Sheet6_4
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f7350cba43d61b468698040b3655114
+      internalID: -793519714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_side-left_idle_no-hands-Sheet6_5
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8bed76308b51204fa2404a0f6c88fcf
+      internalID: 1229911902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6f8a708b562125e45bcb21270f22d5fd
     internalID: 0
     vertices: []
     indices: 
@@ -162,6 +272,11 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Character_side-left_idle_no-hands-Sheet6_0: 3543826311859771632
+      Character_side-left_idle_no-hands-Sheet6_1: 1072709790
+      Character_side-left_idle_no-hands-Sheet6_2: -1169087321
+      Character_side-left_idle_no-hands-Sheet6_3: -1537244429
+      Character_side-left_idle_no-hands-Sheet6_4: -793519714
+      Character_side-left_idle_no-hands-Sheet6_5: 1229911902
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -10,12 +10,13 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
+        player = FindAnyObjectByType<Player>();
+        if (player != null)
+        {
+            damage += player.ekstraMermiGucu;
+        }
         rb = GetComponent<Rigidbody2D>();
-        // Mermiyi kendi baktýðý yöne (saða) doðru fýrlat. 
-        // linearVelocity kullanýyoruz çünkü sen yeni Unity sürümündesin!
         rb.linearVelocity = transform.right * mermiHizi;
-
-        // Ekranda sonsuza kadar uçup oyunu kastýrmamasý için mermiyi 1 saniye sonra yok et
         Destroy(gameObject, 1f);
     }
    

@@ -19,7 +19,7 @@ public class MainMenuManager : MonoBehaviour
     {
         if (sceneFader != null)
         {
-            sceneFader.FadeOutAndLoad("Level 1");
+            sceneFader.FadeOutAndLoad("FirstCutScene");
             MenuMusic music = FindAnyObjectByType<MenuMusic>();
             if (music != null)
             {
