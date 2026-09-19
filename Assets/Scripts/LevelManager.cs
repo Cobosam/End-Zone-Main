@@ -8,39 +8,58 @@ public class LevelManager : MonoBehaviour
     [SerializeField]TextMeshProUGUI level2ZombieText;
     [SerializeField]TextMeshProUGUI level3ZombieText;
     [Header("Bölüm Ayarlarý")]
-    public int hedeflenenZombiSayisi = 10; 
-    private int oldurulenZombi = 0;        
+    public int targetZombieAmount = 10; 
+    private int deadZombies = 0;
+    [SerializeField]private float surviveTime = 140;
+    public float currentTime=0;
 
     [Header("Sonraki Sahne")]
-    public string sonrakiLevelinAdi;       
+    public string nextScene;       
 
     [Header("Baðlantýlar")]
     public ZombieSpawner zombieSpawner;    
     public SceneFader sceneFader;
+    public Player player;
 
+    void Start()
+    {
+        player = FindAnyObjectByType<Player>();    
+    }
     void Update()
     {
+        CheckTime();
         if(level1ZombieText != null)
         {
-            level1ZombieText.text=oldurulenZombi.ToString();
+            level1ZombieText.text=deadZombies.ToString();
         }
         if (level2ZombieText != null)
         {
-            level2ZombieText.text = oldurulenZombi.ToString();
+            level2ZombieText.text = deadZombies.ToString();
         }
         if (level3ZombieText != null)
         {
-            level3ZombieText.text = oldurulenZombi.ToString();
+            level3ZombieText.text = deadZombies.ToString();
         }
     }
     public void ZombiOlduruldu()
     {
-        oldurulenZombi++;
-        Debug.Log("Zombi öldürüldü! Kalan hedef: " + (hedeflenenZombiSayisi - oldurulenZombi));
+        deadZombies++;
+        Debug.Log("Zombi öldürüldü! Kalan hedef: " + (targetZombieAmount - deadZombies));
 
-        if (oldurulenZombi >= hedeflenenZombiSayisi)
+        if (deadZombies >= targetZombieAmount)
         {
             LeveliBitir();
+        }
+    }
+    public void CheckTime()
+    {
+        if(player.isAlive)
+        {
+            currentTime += Time.deltaTime;
+            if (currentTime >= surviveTime)
+            {
+                LeveliBitir();
+            }
         }
     }
 
@@ -54,11 +73,11 @@ public class LevelManager : MonoBehaviour
 
         if (sceneFader != null)
         {
-            sceneFader.FadeOutAndLoad(sonrakiLevelinAdi);
+            sceneFader.FadeOutAndLoad(nextScene);
         }
         else
         {
-            SceneManager.LoadScene(sonrakiLevelinAdi);
+            SceneManager.LoadScene(nextScene);
         }
     }
 }

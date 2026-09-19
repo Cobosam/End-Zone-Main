@@ -20,6 +20,7 @@ public class Player : MonoBehaviour, IDamageable
     private AudioSource audio;
     public AudioSource healSource;
     public AudioClip healEffect;
+    public AudioClip powerupEffect;
     private Color originalColor;
     public bool isAlive = true;
     private ZombieSpawner zs;
@@ -278,6 +279,7 @@ public class Player : MonoBehaviour, IDamageable
     }
     public IEnumerator PlayAmmoEffect()
     {
+        audio.PlayOneShot(powerupEffect);
         ammoEffectObject.SetActive(true);
         yield return new WaitForSeconds(8f);
         ammoEffectObject.SetActive(false);

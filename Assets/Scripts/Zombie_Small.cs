@@ -9,7 +9,7 @@ public class Zombie_Small : Zombie_Big
         currentHealth = maxHealth_zombieSmall;
         if (spriteRenderer != null)
         {
-            spriteRenderer.sortingOrder = Random.Range(20, 1000);
+            spriteRenderer.sortingOrder = Random.Range(15, 17);
         }
     }
     void Update()

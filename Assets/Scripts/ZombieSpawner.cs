@@ -20,31 +20,54 @@ public class ZombieSpawner : MonoBehaviour
     public AudioClip zombieHorde;
     public AudioClip rainSoundEffect;
 
+    [Header("Limit Ayarlarý")]
+    public int maxZombiesToSpawn = -1; 
+    private int spawnedZombiesCount = 0; 
 
     private SceneFader sf;
 
     void Start()
     {
-        audio= GetComponent<AudioSource>();
+        audio = GetComponent<AudioSource>();
         spawnInterval = 2f;
-        StartCoroutine(SpawnZombieRoutine());
-        sf= FindAnyObjectByType<SceneFader>();
+        sf = FindAnyObjectByType<SceneFader>();
         audio.PlayOneShot(rainSoundEffect);
 
         string currentScene = SceneManager.GetActiveScene().name;
-        if (currentScene == "Level 3")
+
+        if (currentScene == "Level 1")
         {
+            maxZombiesToSpawn = 15;
+        }
+        else if (currentScene == "Level 2")
+        {
+            maxZombiesToSpawn = 30;
+        }
+        else if (currentScene == "Level 3")
+        {
+            maxZombiesToSpawn = -1; 
             StartCoroutine(BloodMoonRoutine());
         }
+
+        StartCoroutine(SpawnZombieRoutine());
     }
 
     private IEnumerator SpawnZombieRoutine()
     {
-        while (true) 
+        while (true)
         {
             if (canSpawn)
             {
+                if (maxZombiesToSpawn != -1 && spawnedZombiesCount >= maxZombiesToSpawn)
+                {
+                    Debug.Log("Zombi kotasý doldu! Üretim durduruluyor.");
+                    canSpawn = false;
+                    yield break; 
+                }
+
                 SpawnZombie();
+                spawnedZombiesCount++; 
+
                 yield return new WaitForSeconds(spawnInterval);
             }
             else
@@ -53,14 +76,16 @@ public class ZombieSpawner : MonoBehaviour
             }
         }
     }
+
     public void PlayHowlSound()
     {
         audio.PlayOneShot(zombieHowls);
     }
+
     public void UretimiDurdur()
     {
-        StopAllCoroutines(); 
-        this.enabled = false; 
+        StopAllCoroutines();
+        this.enabled = false;
         Debug.Log("Zombi üretimi durduruldu, seviye tamamlandý!");
     }
 
@@ -79,6 +104,7 @@ public class ZombieSpawner : MonoBehaviour
             Instantiate(selectedZombie, selectedPoint.position, selectedPoint.rotation);
         }
     }
+
     private IEnumerator BloodMoonRoutine()
     {
         yield return new WaitForSeconds(bloodMoonTime);
