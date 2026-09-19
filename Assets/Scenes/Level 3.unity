@@ -2165,7 +2165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SceneFader
   blackScreen: {fileID: 696328473}
   bloodMoonText: {fileID: 1016536978}
-  fadeSpeed: 0.5
+  fadeSpeed: 1
 --- !u!1 &699799819
 GameObject:
   m_ObjectHideFlags: 0
