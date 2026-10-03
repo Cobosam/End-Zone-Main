@@ -1685,6 +1685,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3325840334256965814, guid: 6705092377dd73540b6cdfb414abf0e2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3325840334256965814, guid: 6705092377dd73540b6cdfb414abf0e2, type: 3}
+      propertyPath: atisNoktasi
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4969389537338459584, guid: 6705092377dd73540b6cdfb414abf0e2, type: 3}
       propertyPath: m_Sprite
       value: 

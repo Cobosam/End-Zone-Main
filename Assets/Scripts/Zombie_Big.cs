@@ -34,7 +34,7 @@ public class Zombie_Big : MonoBehaviour, IDamageable
 
     protected virtual void Start()
     {
-        
+
         currentHealth = maxHealth_zombieBig;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
@@ -52,7 +52,7 @@ public class Zombie_Big : MonoBehaviour, IDamageable
 
     void Update()
     {
-        if(player.isAlive==false)
+        if (player.isAlive == false)
         {
             this.enabled = false;
             rigidbody2.simulated = false;
@@ -91,30 +91,36 @@ public class Zombie_Big : MonoBehaviour, IDamageable
         Vector3 currentScale = transform.localScale;
         if (player.isAlive)
         {
-            if (player.transform.position.x > transform.position.x)
+            // X ekseni için ölü bölge (Deadzone) hesabý
+            float xFarki = Mathf.Abs(player.transform.position.x - transform.position.x);
+
+            if (xFarki > 0.1f) // Eðer fark 0.1'den büyükse hareket et
             {
-                currentScale.x = Mathf.Abs(currentScale.x);
-                transform.localScale = currentScale;
-                rigidbody2.linearVelocity = new Vector2(moveSpeed, rigidbody2.linearVelocity.y);
-                anim2.SetFloat("xVelocity", Mathf.Abs(rigidbody2.linearVelocity.x));
+                if (player.transform.position.x > transform.position.x)
+                {
+                    currentScale.x = Mathf.Abs(currentScale.x);
+                    transform.localScale = currentScale;
+                    rigidbody2.linearVelocity = new Vector2(moveSpeed, rigidbody2.linearVelocity.y);
+                    anim2.SetFloat("xVelocity", Mathf.Abs(rigidbody2.linearVelocity.x));
+                }
+                else if (player.transform.position.x < transform.position.x)
+                {
+                    currentScale.x = -Mathf.Abs(currentScale.x);
+                    transform.localScale = currentScale;
+                    rigidbody2.linearVelocity = new Vector2(-moveSpeed, rigidbody2.linearVelocity.y);
+                    anim2.SetFloat("xVelocity", Mathf.Abs(rigidbody2.linearVelocity.x));
+                }
             }
-            else if (player.transform.position.x < transform.position.x)
-            {
-                currentScale.x = -Mathf.Abs(currentScale.x);
-                transform.localScale = currentScale;
-                rigidbody2.linearVelocity = new Vector2(-moveSpeed, rigidbody2.linearVelocity.y);
-                anim2.SetFloat("xVelocity", Mathf.Abs(rigidbody2.linearVelocity.x));
-            }
-            else
+            else // Fark 0.1'den küçükse titremeyi kes ve dur
             {
                 rigidbody2.linearVelocity = new Vector2(0, rigidbody2.linearVelocity.y);
+                anim2.SetFloat("xVelocity", 0f);
             }
         }
         else
         {
             return;
         }
-
     }
 
     protected void CheckPositionY()
@@ -123,15 +129,21 @@ public class Zombie_Big : MonoBehaviour, IDamageable
 
         if (player.isAlive)
         {
-            if (player.transform.position.y > transform.position.y)
+            // Y ekseni için ölü bölge (Deadzone) hesabý
+            float yFarki = Mathf.Abs(player.transform.position.y - transform.position.y);
+
+            if (yFarki > 0.1f) // Eðer fark 0.1'den büyükse hareket et
             {
-                rigidbody2.linearVelocity = new Vector2(rigidbody2.linearVelocity.x, moveSpeed);
+                if (player.transform.position.y > transform.position.y)
+                {
+                    rigidbody2.linearVelocity = new Vector2(rigidbody2.linearVelocity.x, moveSpeed);
+                }
+                else if (player.transform.position.y < transform.position.y)
+                {
+                    rigidbody2.linearVelocity = new Vector2(rigidbody2.linearVelocity.x, -moveSpeed);
+                }
             }
-            else if (player.transform.position.y < transform.position.y)
-            {
-                rigidbody2.linearVelocity = new Vector2(rigidbody2.linearVelocity.x, -moveSpeed);
-            }
-            else
+            else // Fark 0.1'den küçükse titremeyi kes ve dur
             {
                 rigidbody2.linearVelocity = new Vector2(rigidbody2.linearVelocity.x, 0);
             }
@@ -140,7 +152,7 @@ public class Zombie_Big : MonoBehaviour, IDamageable
         {
             return;
         }
-        
+
     }
 
     protected void OnDrawGizmosSelected()

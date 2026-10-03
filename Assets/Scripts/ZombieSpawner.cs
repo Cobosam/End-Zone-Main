@@ -31,7 +31,10 @@ public class ZombieSpawner : MonoBehaviour
         audio = GetComponent<AudioSource>();
         spawnInterval = 2f;
         sf = FindAnyObjectByType<SceneFader>();
-        audio.PlayOneShot(rainSoundEffect);
+        if(rainSoundEffect != null )
+        {
+            audio.PlayOneShot(rainSoundEffect);
+        }
 
         string currentScene = SceneManager.GetActiveScene().name;
 

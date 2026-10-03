@@ -6494,7 +6494,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.033269692, y: -1.3102571}
+  m_ConnectedAnchor: {x: 0.8060111, y: -0.0074380753}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -7299,7 +7299,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.021402035, y: -1.0794957}
+  m_ConnectedAnchor: {x: 0.6637028, y: -0.000002785351}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -7674,7 +7674,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.02406172, y: -1.2144333}
+  m_ConnectedAnchor: {x: 0.74666476, y: -0.00006446375}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -7778,7 +7778,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 1184369
+    rgba: 4279374449
   m_fontColor: {r: 0.4415095, g: 0.072474174, b: 0.072474174, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -8012,7 +8012,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.018327082, y: -1.2917411}
+  m_ConnectedAnchor: {x: 0.7941632, y: 0.007437294}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -8719,6 +8719,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3325840334256965814, guid: 6705092377dd73540b6cdfb414abf0e2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5417826222396442069, guid: 6705092377dd73540b6cdfb414abf0e2, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -9128,7 +9132,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.03828627, y: 2.040625}
+  m_ConnectedAnchor: {x: 13.660019, y: 5.8518653}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -9350,7 +9354,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.016033504, y: -1.1760647}
+  m_ConnectedAnchor: {x: 0.72306144, y: 0.007427721}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -9816,7 +9820,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.016034974, y: -1.1760628}
+  m_ConnectedAnchor: {x: 0.723059, y: 0.0074353055}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -10484,7 +10488,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.030211547, y: -1.1560204}
+  m_ConnectedAnchor: {x: 0.7112095, y: -0.007434155}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -10588,7 +10592,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -10848,7 +10852,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.021797433, y: -1.0987672}
+  m_ConnectedAnchor: {x: 0.67555183, y: -0.000014617865}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -10934,7 +10938,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.022547688, y: -1.1373258}
+  m_ConnectedAnchor: {x: 0.6992593, y: -0.0000017137161}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -11020,7 +11024,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.029831491, y: -1.1367387}
+  m_ConnectedAnchor: {x: 0.69935983, y: -0.0074266195}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:

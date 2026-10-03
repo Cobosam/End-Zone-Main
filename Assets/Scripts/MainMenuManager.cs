@@ -27,6 +27,13 @@ public class MainMenuManager : MonoBehaviour
             }
         }
     }
+    public void Gameplay()
+    {
+        if (sceneFader!=null)
+        {
+            sceneFader.FadeOutAndLoad("Gameplay");
+        }
+    }
 
     public void OyundanCik()
     {
