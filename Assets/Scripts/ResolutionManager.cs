@@ -18,7 +18,7 @@ public class ResolutionManager : MonoBehaviour
         List<string> options = new List<string>();
         UnityEngine.Resolution[] allResolutions = Screen.resolutions;
 
-        int currentResolutionIndex = 0; // Aktif çözünürlüðün sýrasýný tutacaðýz
+        int currentResolutionIndex = 0; 
 
         foreach (UnityEngine.Resolution res in allResolutions)
         {
@@ -27,27 +27,26 @@ public class ResolutionManager : MonoBehaviour
                 filteredResolutions.Add(res);
                 options.Add(res.width + " x " + res.height);
 
-                // Oyunun þu anki çözünürlüðünü listede bulursak sýrasýný kaydediyoruz
                 if (res.width == Screen.width && res.height == Screen.height)
                 {
                     currentResolutionIndex = filteredResolutions.Count - 1;
                 }
             }
         }
-
         resolutionDropdown.ClearOptions();
         resolutionDropdown.AddOptions(options);
 
-        // Menüde varsayýlan olarak mevcut çözünürlüðü seçili göster
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
     }
 
-    // YENÝ EKLENEN KISIM: Seçilen çözünürlüðü ekrana uygular
     public void SetResolution(int resolutionIndex)
     {
         UnityEngine.Resolution resolution = filteredResolutions[resolutionIndex];
-        // Seçilen geniþliði, yüksekliði uygula ve tam ekran modunu koru
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        Screen.SetResolution(resolution.width, resolution.height, FullScreenMode.ExclusiveFullScreen);
+    }
+    public void SetFullscreen(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
     }
 }

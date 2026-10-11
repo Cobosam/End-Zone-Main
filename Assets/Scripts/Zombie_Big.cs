@@ -91,10 +91,9 @@ public class Zombie_Big : MonoBehaviour, IDamageable
         Vector3 currentScale = transform.localScale;
         if (player.isAlive)
         {
-            // X ekseni için ölü bölge (Deadzone) hesabý
             float xFarki = Mathf.Abs(player.transform.position.x - transform.position.x);
 
-            if (xFarki > 0.1f) // Eðer fark 0.1'den büyükse hareket et
+            if (xFarki > 0.1f) 
             {
                 if (player.transform.position.x > transform.position.x)
                 {
@@ -111,7 +110,7 @@ public class Zombie_Big : MonoBehaviour, IDamageable
                     anim2.SetFloat("xVelocity", Mathf.Abs(rigidbody2.linearVelocity.x));
                 }
             }
-            else // Fark 0.1'den küçükse titremeyi kes ve dur
+            else 
             {
                 rigidbody2.linearVelocity = new Vector2(0, rigidbody2.linearVelocity.y);
                 anim2.SetFloat("xVelocity", 0f);
@@ -129,10 +128,9 @@ public class Zombie_Big : MonoBehaviour, IDamageable
 
         if (player.isAlive)
         {
-            // Y ekseni için ölü bölge (Deadzone) hesabý
             float yFarki = Mathf.Abs(player.transform.position.y - transform.position.y);
 
-            if (yFarki > 0.1f) // Eðer fark 0.1'den büyükse hareket et
+            if (yFarki > 0.1f) 
             {
                 if (player.transform.position.y > transform.position.y)
                 {
@@ -143,7 +141,7 @@ public class Zombie_Big : MonoBehaviour, IDamageable
                     rigidbody2.linearVelocity = new Vector2(rigidbody2.linearVelocity.x, -moveSpeed);
                 }
             }
-            else // Fark 0.1'den küçükse titremeyi kes ve dur
+            else 
             {
                 rigidbody2.linearVelocity = new Vector2(rigidbody2.linearVelocity.x, 0);
             }
@@ -244,12 +242,10 @@ public class Zombie_Big : MonoBehaviour, IDamageable
 
     public virtual void DamageSound()
     {
-        // Menzildeki hedefi bul
         Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, attackRange, targetLayer);
 
         if (hit != null)
         {
-            // Vurduðu objenin etiketine göre sesi çal
             if (hit.CompareTag("Player") && playerHitSound != null)
             {
                 audioSource.PlayOneShot(playerHitSound);

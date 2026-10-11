@@ -167,10 +167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -337,15 +337,15 @@ RectTransform:
   m_GameObject: {fileID: 240424853}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.9443729, y: 1.9443729, z: 1.9443729}
+  m_LocalScale: {x: 2.274333, y: 2.274333, z: 2.274333}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 712780879}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.08651289, y: 0.77581483}
-  m_AnchorMax: {x: 0.1373125, y: 0.86362964}
-  m_AnchoredPosition: {x: 169.56396, y: -24.889465}
-  m_SizeDelta: {x: 141, y: 3}
+  m_AnchorMin: {x: 0.08651289, y: 0.8043867}
+  m_AnchorMax: {x: 0.1431962, y: 0.86362964}
+  m_AnchoredPosition: {x: 216.62994, y: -124.43997}
+  m_SizeDelta: {x: 133, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &240424855
 MonoBehaviour:
@@ -433,7 +433,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -5.965744, y: 6.9499807, z: 199.36328, w: 58.29206}
+  m_margin: {x: -5.965744, y: 0.9236002, z: -2.247387, w: 2.3291798}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -539,15 +539,15 @@ RectTransform:
   m_GameObject: {fileID: 411666401}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.34541768, y: 0.48074844, z: 0.27790532}
+  m_LocalScale: {x: 0.38448444, y: 0.53512114, z: 0.30933642}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 712780879}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.039604165, y: 0.77581483}
-  m_AnchorMax: {x: 0.07029166, y: 0.86362964}
-  m_AnchoredPosition: {x: -7, y: 30}
-  m_SizeDelta: {x: 72, y: 54}
+  m_AnchorMin: {x: 0.039604165, y: 0.8174075}
+  m_AnchorMax: {x: 0.065407425, y: 0.8898126}
+  m_AnchoredPosition: {x: -6.980957, y: -67.173004}
+  m_SizeDelta: {x: 83, y: 79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &411666403
 MonoBehaviour:
@@ -874,10 +874,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1069,7 +1069,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1668,10 +1668,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1829,15 +1829,15 @@ RectTransform:
   m_GameObject: {fileID: 774071878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.9443727, y: 1.9443727, z: 1.9443727}
+  m_LocalScale: {x: 2.2743328, y: 2.2743328, z: 2.2743328}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2040432136}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.074, y: 0.76370376}
-  m_AnchorMax: {x: 0.15233335, y: 0.869}
-  m_AnchoredPosition: {x: 175.39398, y: -18.46344}
-  m_SizeDelta: {x: 95, y: -20}
+  m_AnchorMin: {x: 0.08866032, y: 0.81925935}
+  m_AnchorMax: {x: 0.14646414, y: 0.8737616}
+  m_AnchoredPosition: {x: 222, y: -129}
+  m_SizeDelta: {x: 123, y: 19}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &774071880
 MonoBehaviour:
@@ -1925,7 +1925,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -8.948639, y: 6.9499807, z: 198.02783, w: 52.4661}
+  m_margin: {x: -8.948639, y: -2.519988, z: 2.597927, w: -1.775053}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2159,15 +2159,15 @@ RectTransform:
   m_GameObject: {fileID: 924692963}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.29961568, y: 0.44870394, z: 0.25938147}
+  m_LocalScale: {x: 0.33350223, y: 0.49945238, z: 0.28871754}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1846534881}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.037, y: 0.77900004}
-  m_AnchorMax: {x: 0.06831251, y: 0.85476094}
-  m_AnchoredPosition: {x: -5.0510254, y: 27.938751}
-  m_SizeDelta: {x: 76, y: 75}
+  m_AnchorMin: {x: 0.037, y: 0.81500006}
+  m_AnchorMax: {x: 0.06582121, y: 0.88100004}
+  m_AnchoredPosition: {x: -7.8320312, y: -66.88901}
+  m_SizeDelta: {x: 82, y: 94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &924692965
 MonoBehaviour:
@@ -2276,15 +2276,15 @@ RectTransform:
   m_GameObject: {fileID: 1085635799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8993258, y: 1.9443727, z: 1.9443727}
+  m_LocalScale: {x: 2.2216415, y: 2.2743328, z: 2.2743328}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1846534881}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.087000005, y: 0.7871482}
-  m_AnchorMax: {x: 0.109354176, y: 0.85476094}
-  m_AnchoredPosition: {x: 173.93396, y: -21.290466}
-  m_SizeDelta: {x: 189, y: 20}
+  m_AnchorMin: {x: 0.087000005, y: 0.800698}
+  m_AnchorMax: {x: 0.14600001, y: 0.85476094}
+  m_AnchoredPosition: {x: 197.72003, y: -114.48996}
+  m_SizeDelta: {x: 139, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1085635801
 MonoBehaviour:
@@ -2372,7 +2372,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 6.9499807, z: 212.59189, w: 56.913433}
+  m_margin: {x: 0, y: 3.5063314, z: -1.316719, w: 1.8114014}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2912,15 +2912,15 @@ RectTransform:
   m_GameObject: {fileID: 1524781510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.19754292, y: 0.51318914, z: 0.27216354}
+  m_LocalScale: {x: 0.21988504, y: 0.5712308, z: 0.30294526}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2040432136}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.04020441, y: 0.7775186}
-  m_AnchorMax: {x: 0.069249995, y: 0.8607408}
-  m_AnchoredPosition: {x: -7.57605, y: 30.943848}
-  m_SizeDelta: {x: 75, y: 67}
+  m_AnchorMin: {x: 0.04020441, y: 0.81925935}
+  m_AnchorMax: {x: 0.06436576, y: 0.896}
+  m_AnchoredPosition: {x: -7.670166, y: -69.47299}
+  m_SizeDelta: {x: 86, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1524781512
 MonoBehaviour:
@@ -3281,10 +3281,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -3529,10 +3529,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
