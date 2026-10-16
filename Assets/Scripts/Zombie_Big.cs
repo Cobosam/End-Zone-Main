@@ -10,6 +10,7 @@ public class Zombie_Big : MonoBehaviour, IDamageable
     protected CapsuleCollider2D capsuleCollider2;
     protected SpriteRenderer spriteRenderer;
     protected AudioSource audioSource;
+    [SerializeField] protected AudioClip fleshSound;
 
     [Header("Saldýrý Sesleri")]
     [SerializeField] protected AudioClip playerHitSound;
@@ -196,6 +197,7 @@ public class Zombie_Big : MonoBehaviour, IDamageable
             levelManager.ZombiOlduruldu();
         }
         deathCount++;
+        //audioSource.PlayOneShot(fleshSound);
         StartCoroutine(DeathBody());
     }
 

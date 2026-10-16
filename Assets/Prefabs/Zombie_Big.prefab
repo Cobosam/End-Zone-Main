@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fec2f18a158502438abc59b3df78a8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Zombie_Big
+  fleshSound: {fileID: 0}
   playerHitSound: {fileID: 8300000, guid: 019d6a09e70e91e43bb33ed6d4c80d13, type: 3}
   barricadeHitSound: {fileID: 8300000, guid: 8e485f171cdb38041a9ce976aaeed416, type: 3}
   damage: 50
